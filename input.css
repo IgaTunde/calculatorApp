@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  button {
+    @apply bg-gray-200 font-semibold my-5 py-[4px] px-[12px] rounded-[4px] text-lg;
+  }
+}

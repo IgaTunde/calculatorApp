@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/output.css" rel="stylesheet" />
+    <title>Calculator App</title>
+  </head>
+  <body class="font-serif">
+    <div
+      class="flex flex-col justify-center items-center text-2xl mt-6"
+      id="app"
+    >
+      <h1 class="text-[3.5rem] font-bold">Calculator App</h1>
+
+      <div class="input flex items-center justify-center">
+        <div class="flex flex-col items-start mt-10 mr-10">
+          <label for="num1" class="font-semibold">Number 1:</label>
+          <input
+            type="number"
+            id="num1"
+            placeholder="0"
+            class="border-gray-400 rounded-[4px] pl-1 w-[250px] border"
+          />
+        </div>
+
+        <div class="flex flex-col items-start mt-10">
+          <label for="num2" class="font-semibold">Number 2:</label>
+          <input
+            type="number"
+            id="num2"
+            placeholder="0"
+            class="border-gray-400 rounded-[4px]  pl-1 w-[250px] border"
+          />
+        </div>
+      </div>
+
+      <div class="buttons flex gap-5">
+        <button id="add" onclick="addNumbers()">+</button>
+        <button id="subtract" onclick="subtractNumbers()">-</button>
+        <button id="divide" onclick="divideNumbers()">/</button>
+        <button id="multiply" onclick="multiplyNumbers()">*</button>
+      </div>
+
+      <div class="">
+        <span id="result">Answer: </span>
+      </div>
+    </div>
+
+    <script type="module">
+      import Calculator from "./script.js";
+
+      const calculator = new Calculator();
+       
+      // Add Numbers
+      window.addNumbers = function () {
+        const num1Tag = document.getElementById("num1").value;
+        const num2Tag = document.getElementById("num2").value;
+
+        const num1 = parseFloat(num1Tag)
+        const num2 = parseFloat(num2Tag)
+
+        const result = calculator.add(num1, num2)
+        document.getElementById('result').innerText = `Result: ${result}`
+      };
+    
+      // Subtract Numbers
+      window.subtractNumbers = function () {
+        const num1Tag = document.getElementById("num1").value;
+        const num2Tag = document.getElementById("num2").value;
+
+        const num1 = parseFloat(num1Tag)
+        const num2 = parseFloat(num2Tag)
+
+        const result = calculator.subtract(num1, num2)
+        document.getElementById('result').innerText = `Result: ${result}`
+      };
+
+      //Divide Numbers
+      window.divideNumbers = function () {
+        const num1Tag = document.getElementById("num1").value;
+        const num2Tag = document.getElementById("num2").value;
+
+        const num1 = parseFloat(num1Tag)
+        const num2 = parseFloat(num2Tag)
+
+        const result = calculator.divide(num1, num2)
+        document.getElementById('result').innerText = `Result: ${result}`
+      }; 
+
+      //Mulitply Numbers
+       window.multiplyNumbers = function () {
+        const num1Tag = document.getElementById("num1").value;
+        const num2Tag = document.getElementById("num2").value;
+
+        const num1 = parseFloat(num1Tag)
+        const num2 = parseFloat(num2Tag)
+
+        const result = calculator.multiply(num1, num2)
+        document.getElementById('result').innerText = `Result: ${result}`
+      };
+    </script>
+  </body>
+</html>
